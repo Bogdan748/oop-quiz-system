@@ -33,18 +33,18 @@ namespace QuizSystem.Terminal
                 new SingleSelectionQuestion(
                     id++,
                     "Choose ypur preffered fruid:",
-                    new[]{ 
+                    new[]{
                             "Apples","Oranges","Bananas"
                        },
                     1),
 
-                new SingleSelectionQuestion(
+                new MultipleSelectionQuestion(
                     id++,
                     "What is the best smartphone brand:",
                     new[]{
                             "Apple","Samsung","LG"
                        },
-                    0),
+                    new[] {0,1 }),
 
                 new SingleSelectionQuestion(
                     id++,
@@ -54,14 +54,14 @@ namespace QuizSystem.Terminal
                        },
                     2),
 
-                new SingleSelectionQuestion(
+                new MultipleSelectionQuestion(
                     id++,
                     "Who build the best electri cars:",
                     new[]{
                             "Tesla","Renauld","Dacia"
                        },
-                    1),
-            });
+                    new[] { 0,2}),
+            }) ;
 
 
         }
