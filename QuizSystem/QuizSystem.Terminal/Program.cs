@@ -17,7 +17,15 @@ namespace QuizSystem.Terminal
 
 
             QuizReply userReply = new QuizReply(user, quiz);
-            userReply.Solve();
+            ConsoleGuiEngine guiEngine = new ConsoleGuiEngine(
+                new QuestionRenderer[]
+                {
+                    new SingleSelectionQuestionRenderer(),
+                    new MultipleSelectionQuestionRenderer()
+                }
+                );
+
+            userReply.Solve(guiEngine);
 
             Console.WriteLine();
             Console.Write($"Congrats, you achieved {userReply.Score} points!!!");

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace QuizSystem.Library
+﻿namespace QuizSystem.Library
 {
     public class QuizReply
     {
@@ -16,20 +14,23 @@ namespace QuizSystem.Library
         public decimal Score { get; private set; } = 0M;
 
 
-        public void Solve()
+        public void Solve(GuiEngine guiEngine)
         {
+            guiEngine.GoToNextQuestion();
             //rezolvarea chestionarului
 
             for (int i = 0; i<Quiz.Questions.Length; i++)
             {
-                Console.WriteLine();
+                
                 //afisez intrebare
                 Question question = Quiz.Questions[i];
+                QuestionRenderer questionRenderer=  guiEngine.GetRendererForQuestion(question);
+                questionRenderer.RenderQuestion(i + 1, question);
+
                 
-                question.Render(i + 1);
 
                 //astept raspuns
-                string userAnswer = Console.ReadLine();
+                string userAnswer = guiEngine.GetQuestionReply();
                 //interpretez si fac update
                 decimal questionScore = question.GetScoreForAnswer(userAnswer);
                 Score += questionScore;

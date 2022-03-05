@@ -69,15 +69,5 @@ namespace QuizSystem.Library
 
             return 1;
         }
-
-        public override void Render(int questionNo)
-        {
-            Console.WriteLine($"{questionNo}) {Text}");
-            for (int i = 0; i < Options.Length; i++)
-            {
-                Console.WriteLine($"    {i}: {Options[i]}");
-            }
-            Console.Write("Please choose a one or more option indices (comma separated)=");
-        }
     }
 }
